@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -21,7 +21,7 @@
       <div class="inner">
         <h1>Org-doing</h1>
         <h2>keep track of what you&#39;re doing right now and what you&#39;ve worked on before</h2>
-        <a href="https://github.com/omouse/org-doing" class="button"><small>View project on</small>GitHub</a>
+        <a href="https://github.com/omouse/org-doing" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
 
@@ -29,13 +29,18 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h1>
-<a name="org-doing" class="anchor" href="#org-doing"><span class="octicon octicon-link"></span></a>org-doing</h1>
+<a id="org-doing" class="anchor" href="#org-doing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>org-doing</h1>
+
+<p><a href="https://travis-ci.org/omouse/org-doing"><img src="https://travis-ci.org/omouse/org-doing.svg" alt="Build Status"></a>
+<a href="http://melpa.org/#/org-doing"><img src="http://melpa.org/packages/org-doing-badge.svg" alt="MELPA"></a>
+<a href="http://www.gnu.org/licenses/gpl-3.0.html"><img src="http://img.shields.io/:license-gpl3-blue.svg" alt="License"></a>
+<a href="https://flattr.com/submit/auto?fid=y0jx3j&amp;url=https%3A%2F%2Fgithub.com%2Fomouse%2Forg-doing"><img src="http://button.flattr.com/flattr-badge-large.png" alt="Flattr This"></a></p>
 
 <p>Inspired by <a href="https://github.com/ttscoff/doing/">doing</a>, a set of
 functions for keeping track of what you're doing right now.</p>
 
 <h2>
-<a name="how-it-works" class="anchor" href="#how-it-works"><span class="octicon octicon-link"></span></a>How it works</h2>
+<a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How it works</h2>
 
 <p>Creates a <code>doing.org</code> file in your home directory (or wherever
 <code>org-doing-file</code> points to). The file has two sections: now and
@@ -43,10 +48,10 @@ later. The now section lists things you are currently working on. The
 later section lists things you want to work on later.</p>
 
 <h2>
-<a name="use-it" class="anchor" href="#use-it"><span class="octicon octicon-link"></span></a>Use it</h2>
+<a id="use-it" class="anchor" href="#use-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use it</h2>
 
 <h3>
-<a name="org-doing-functions" class="anchor" href="#org-doing-functions"><span class="octicon octicon-link"></span></a>Org-Doing Functions</h3>
+<a id="org-doing-functions" class="anchor" href="#org-doing-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Org-Doing Functions</h3>
 
 <p>Log what you're doing now:</p>
 
@@ -70,7 +75,7 @@ later section lists things you want to work on later.</p>
 </code></pre>
 
 <h3>
-<a name="org-doing-omni-function" class="anchor" href="#org-doing-omni-function"><span class="octicon octicon-link"></span></a>Org-Doing Omni Function</h3>
+<a id="org-doing-omni-function" class="anchor" href="#org-doing-omni-function" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Org-Doing Omni Function</h3>
 
 <p>The omni function lets you enter short-hands at the beginning, making it very quick to use org-doing:</p>
 
@@ -98,7 +103,7 @@ done
 </code></pre>
 
 <h2>
-<a name="from-the-bash-command-line" class="anchor" href="#from-the-bash-command-line"><span class="octicon octicon-link"></span></a>From The Bash Command-Line</h2>
+<a id="from-the-bash-command-line" class="anchor" href="#from-the-bash-command-line" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>From The Bash Command-Line</h2>
 
 <p>You can also use org-doing from the command line by defining the
 <code>ORG_DOING_PATH</code> environment variable to the location of
@@ -111,6 +116,45 @@ doing later more awesome
 doing done something cool
 doing done
 </code></pre>
+
+<h1>
+<a id="hacking-on-org-doing" class="anchor" href="#hacking-on-org-doing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hacking on org-doing</h1>
+
+<p>Start by installing all the dependencies in the Caskfile:</p>
+
+<pre><code>cask install
+</code></pre>
+
+<p>We use GNU Make for running unit tests, feature tests and for installing org-doing.</p>
+
+<p>Run the tests:</p>
+
+<pre><code>make test
+make unit # run the unit tests using ERT
+make ecukes # run the feature tests using ecukes
+</code></pre>
+
+<p><a href="https://www.gnu.org/software/emacs/manual/html_mono/ert.html">ERT</a> is the Emacs Lisp Regression Testing framework. <a href="https://github.com/ecukes/ecukes">Ecukes</a> is an implementation of Cucumber/BDD. <a href="http://emacswiki.org/emacs/EmacsLispMock">El-mock</a> is used for mock objects/stubbing in the unit tests.</p>
+
+<p>Unit tests are in the <code>test/</code> directory. Higher level/integration/functional specs are in the <code>features/</code> directory.</p>
+
+<h1>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributors</h1>
+
+<ul>
+<li>Adrien Becchis <a href="https://github.com/AdrieanKhisbe" class="user-mention">@AdrieanKhisbe</a>
+</li>
+<li>Bjarte Johansen <a href="https://github.com/ljos" class="user-mention">@ljos</a>
+</li>
+<li>Greg Lucas <a href="https://github.com/glucas" class="user-mention">@glucas</a>
+</li>
+<li>Rudolf Olah <a href="https://github.com/omouse" class="user-mention">@omouse</a>
+</li>
+<li>Steve Purcell <a href="https://github.com/purcell" class="user-mention">@purcell</a>
+</li>
+<li>Syohei YOSHIDA <a href="https://github.com/syohex" class="user-mention">@syohex</a>
+</li>
+</ul>
         </section>
 
         <aside id="sidebar">
